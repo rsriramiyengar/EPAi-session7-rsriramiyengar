@@ -47,6 +47,15 @@ def function_2_5_acii_shifting(l1: 'string for shifting characters') -> 'shifted
     """
     return ["".join([chr(ord(a)+5) if ord(a) <= 117 else chr(ord(a)+5-26) for a in l1])]
 
+def function_3_paragraph_profanity_check(para:'Paragraph of text to be check'):
+    """
+    This Function checks for input paragraph does not contain any profanity
+    """
+    f = open("profanity_words_list.txt", "r")
+    content_profanity = f.read()
+    f.close()
+    return set([True if p in content_profanity else False for p in ' '.join(para).split()])
+
 
 def function_4_1_even_addition(l1: 'list of number for addition') -> 'sum of even numbers':
     """
@@ -69,7 +78,6 @@ def function_4_3_third_element_addition(l1: 'List of Number') -> 'sum of every 3
     return reduce(lambda a,b:a+b,l1[2::3])
 
 
-
 def function_5_number_plate_generator() -> 'Number Plate':
     """
     This function Generates Random plates for KA state  with RTO Location between 10 and 99 and series between AA and ZZ
@@ -87,3 +95,7 @@ def function_6_number_plate_generator_special(state:'State of registration',star
 
 
 function_6_number_plate_generator_special_partial=partial(function_6_number_plate_generator_special,start=1000,end=9999)
+
+
+
+
