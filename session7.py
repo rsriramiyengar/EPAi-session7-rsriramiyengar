@@ -1,7 +1,9 @@
 import random
 import math
+from random import randint
 
 vowels = ['a', 'e', 'i', 'o', 'u']
+cap_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X', 'Y', 'Z']
 
 def function_2_1_sum_list(l1: 'List1', l2: 'List2') -> 'Returns List after sum':
     """
@@ -33,3 +35,23 @@ def function_2_5_acii_shifting(l1: 'string for shifting characters') -> 'shifted
     This function returns List of string shifted by 5 character towards right for all small letters only
     """
     return ["".join([chr(ord(a)+5) if ord(a) <= 117 else chr(ord(a)+5-26) for a in l1])]
+
+
+def function_5_number_plate_generator() -> 'Number Plate':
+    """
+    This function Generates Random plates for KA state  with RTO Location between 10 and 99 and series between AA and ZZ
+    and series sub number between 1000 and 9999
+    """
+    return ['KA'+str(randint(10,99))+random.choice(cap_letters)+random.choice(cap_letters)+str(randint(1000,9999)) for x in range(15)]
+
+print(function_5_number_plate_generator())
+
+
+def function_6_number_plate_generator_special(state:'State of registration',start:'start range',end :'end range') -> 'Number Plate':
+    """
+    This function Generates Random plates for Userdefined state state  with RTO Location between 10 and 99 and series between AA and ZZ
+    and series sub number between user defined ranges
+    """
+    return [state+str(randint(10,99))+random.choice(cap_letters)+random.choice(cap_letters)+str(randint(start,end)) for x in range(15)]
+
+print(function_6_number_plate_generator_special('DL',1500,9000))
