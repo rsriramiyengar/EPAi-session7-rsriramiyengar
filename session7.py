@@ -1,6 +1,7 @@
 import random
 import math
 from random import randint
+from functools import partial
 
 vowels = ['a', 'e', 'i', 'o', 'u']
 cap_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X', 'Y', 'Z']
@@ -44,8 +45,6 @@ def function_5_number_plate_generator() -> 'Number Plate':
     """
     return ['KA'+str(randint(10,99))+random.choice(cap_letters)+random.choice(cap_letters)+str(randint(1000,9999)) for x in range(15)]
 
-print(function_5_number_plate_generator())
-
 
 def function_6_number_plate_generator_special(state:'State of registration',start:'start range',end :'end range') -> 'Number Plate':
     """
@@ -54,4 +53,5 @@ def function_6_number_plate_generator_special(state:'State of registration',star
     """
     return [state+str(randint(10,99))+random.choice(cap_letters)+random.choice(cap_letters)+str(randint(start,end)) for x in range(15)]
 
-print(function_6_number_plate_generator_special('DL',1500,9000))
+
+function_6_number_plate_generator_special_partial=partial(function_6_number_plate_generator_special,start=1000,end=9999)

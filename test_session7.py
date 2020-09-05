@@ -9,9 +9,9 @@ from  session7 import function_2_2_vowels_list
 from  session7 import function_2_3_1d_relu_list
 from  session7 import function_2_4_1d_sigmoid_list
 from  session7 import function_2_5_acii_shifting
-#from  session7 import function_2_5_acii_shifting
-#from  session7 import function_2_5_acii_shifting
-#from  session7 import function_2_5_acii_shifting
+from  session7 import function_5_number_plate_generator
+from  session7 import function_6_number_plate_generator_special
+from  session7 import function_6_number_plate_generator_special_partial
 #from  session7 import function_2_5_acii_shifting
 import os
 import inspect
@@ -96,3 +96,86 @@ def test_function_2_4_1d_sigmoid_list():
 
 def test_function_2_5_acii_shifting():
     assert function_2_5_acii_shifting('tsai')==['yxfn'],'List Function for string shifting is not working properly'
+
+def test_function_5_number_plate_generator_state_check():
+    l=function_5_number_plate_generator()
+    state=[a[0:2] for a  in l]
+    assert set(state)=={'KA'},'List Number plate generator for KA not working properly'
+
+def test_function_5_number_plate_generator_rto_check():
+    l=function_5_number_plate_generator()
+    rto=[a[2:4] for a in l]
+    rto_check=[True if int(a)>=10 and int(a)<=99 else False for a in rto]
+    assert set(rto_check)=={True},'List Number plate generator for RTO not working properly'
+
+def test_function_5_number_plate_generator_series_alpha_check():
+    l=function_5_number_plate_generator()
+    series_alpha1 = [a[4] for a in l]
+    series_alpha2 = [a[5] for a in l]
+    series_check=[True if a in cap_letters and b in cap_letters  else False for a,b in zip(series_alpha1,series_alpha2)]
+    assert set(series_check)=={True},'List Number plate generator for Series not working properly'
+
+def test_function_5_number_plate_generator_number_check():
+    l=function_5_number_plate_generator()
+    number=[a[6:] for a in l]
+    number_check=[True if int(a)>=1000 and int(a)<=9999 else False for a in number]
+    assert set(number_check)=={True},'List Number plate generator for number not working properly'
+
+
+def test_function_6_number_plate_generator_special_state_check():
+    start = 1000
+    end = 9999
+    l = function_6_number_plate_generator_special('DL', start, end)
+    state=[a[0:2] for a  in l]
+    assert set(state)=={'DL'},'List Number plate generator special for user defined state not working properly'
+
+def test_function_6_number_plate_generator_special_rto_check():
+    start=1000
+    end=9999
+    l=function_6_number_plate_generator_special('DL',start,end)
+    rto=[a[2:4] for a in l]
+    rto_check=[True if int(a)>=10 and int(a)<=99 else False for a in rto]
+    assert set(rto_check)=={True},'List Number plate generator for RTO not working properly'
+
+def test_function_6_number_plate_generator_special_alpha_check():
+    start = 1000
+    end = 9999
+    l = function_6_number_plate_generator_special('DL', start, end)
+    series_alpha1 = [a[4] for a in l]
+    series_alpha2 = [a[5] for a in l]
+    series_check=[True if a in cap_letters and b in cap_letters  else False for a,b in zip(series_alpha1,series_alpha2)]
+    assert set(series_check)=={True},'List Number plate generator for Series not working properly'
+
+def test_function_6_number_plate_generator_special_number_check():
+    start = 1500
+    end = 9000
+    l = function_6_number_plate_generator_special('DL', start, end)
+    number=[a[6:] for a in l]
+    number_check=[True if int(a)>=start and int(a)<=end else False for a in number]
+    assert set(number_check)=={True},'List Number plate generator for number not working properly'
+
+
+def test_function_6_number_plate_generator_special_partial_state_check():
+    l = function_6_number_plate_generator_special_partial('KA')
+    state=[a[0:2] for a  in l]
+    assert set(state)=={'KA'},'List Number plate generator special for user defined state not working properly'
+
+def test_function_6_number_plate_generator_special_partial_rto_check():
+    l = function_6_number_plate_generator_special_partial('KA')
+    rto=[a[2:4] for a in l]
+    rto_check=[True if int(a)>=10 and int(a)<=99 else False for a in rto]
+    assert set(rto_check)=={True},'List Number plate generator for RTO not working properly'
+
+def test_function_6_number_plate_generator_special_partial_alpha_check():
+    l = function_6_number_plate_generator_special_partial('KA')
+    series_alpha1 = [a[4] for a in l]
+    series_alpha2 = [a[5] for a in l]
+    series_check=[True if a in cap_letters and b in cap_letters  else False for a,b in zip(series_alpha1,series_alpha2)]
+    assert set(series_check)=={True},'List Number plate generator for Series not working properly'
+
+def test_function_6_number_plate_generator_special_partial_number_check():
+    l = function_6_number_plate_generator_special_partial('KA')
+    number=[a[6:] for a in l]
+    number_check=[True if int(a)>=1000 and int(a)<=9999 else False for a in number]
+    assert set(number_check)=={True},'List Number plate generator for number not working properly'
+
