@@ -9,10 +9,14 @@ from  session7 import function_2_2_vowels_list
 from  session7 import function_2_3_1d_relu_list
 from  session7 import function_2_4_1d_sigmoid_list
 from  session7 import function_2_5_acii_shifting
+from  session7 import function_4_1_even_addition
+from  session7 import function_4_2_biggest_acii_char
+from  session7 import function_4_3_third_element_addition
 from  session7 import function_5_number_plate_generator
 from  session7 import function_6_number_plate_generator_special
 from  session7 import function_6_number_plate_generator_special_partial
-#from  session7 import function_2_5_acii_shifting
+
+
 import os
 import inspect
 import re
@@ -96,6 +100,19 @@ def test_function_2_4_1d_sigmoid_list():
 
 def test_function_2_5_acii_shifting():
     assert function_2_5_acii_shifting('tsai')==['yxfn'],'List Function for string shifting is not working properly'
+
+def test_function_4_1_even_addition_check():
+    l1=[2,3,4,5,6,7]
+    assert function_4_1_even_addition(l1)==12,'Reduce function for even addition not working properly'
+
+
+def test_function_4_2_biggest_acii_char_check():
+    l1=['ZORRO']
+    assert function_4_2_biggest_acii_char(l1)=='Z','Reduce function for largest acii character  not working properly'
+
+def test_function_4_3_third_element_addition_check():
+    l1=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+    assert function_4_3_third_element_addition(l1)==30,'Reduce function for sum of third number  not working properly'
 
 def test_function_5_number_plate_generator_state_check():
     l=function_5_number_plate_generator()

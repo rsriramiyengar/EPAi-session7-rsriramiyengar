@@ -2,6 +2,7 @@ import random
 import math
 from random import randint
 from functools import partial
+from functools import reduce
 
 vowels = ['a', 'e', 'i', 'o', 'u']
 cap_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X', 'Y', 'Z']
@@ -36,6 +37,28 @@ def function_2_5_acii_shifting(l1: 'string for shifting characters') -> 'shifted
     This function returns List of string shifted by 5 character towards right for all small letters only
     """
     return ["".join([chr(ord(a)+5) if ord(a) <= 117 else chr(ord(a)+5-26) for a in l1])]
+
+
+def function_4_1_even_addition(l1: 'list of number for addition') -> 'sum of even numbers':
+    """
+    This function returns sum of even number in given list
+    """
+    return reduce(lambda a,b:(a if a%2==0 else 0) + (b if b%2==0 else 0),l1)
+
+
+def function_4_2_biggest_acii_char(l1: 'string') -> 'largest printable printable ascii characters':
+    """
+    This function  returns largest printable printable ascii characters from a given string
+    """
+    return reduce(lambda a,b:a if ord(a)>ord(b) else b,*l1)
+
+
+def function_4_3_third_element_addition(l1: 'List of Number') -> 'sum of every 3rd element in list':
+    """
+    This function returns sum of every 3rd element in list
+    """
+    return reduce(lambda a,b:a+b,l1[2::3])
+
 
 
 def function_5_number_plate_generator() -> 'Number Plate':
