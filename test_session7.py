@@ -4,6 +4,7 @@ import string
 import pytest
 
 import session7
+from  session7 import function_1_fibonacci_list
 from  session7 import function_2_1_sum_list
 from  session7 import function_2_2_vowels_list
 from  session7 import function_2_3_1d_relu_list
@@ -86,11 +87,14 @@ def test_function_name_had_cap_letter():
     for function in functions:
         assert len(re.findall('([A-Z])', function[0])) == 0, "You have used Capital letter(s) in your function names"
 
+def test_function_1_fibonacci_list():
+    assert function_1_fibonacci_list([6,9,10,13,14,15, 21,22, 34,40,55, 89])==[13, 21, 34, 55, 89],'fibonacci_list Function is not working properly'
+
 def test_function_2_1_sum_list():
-    assert function_2_1_sum_list([2,4,10],[5,6,9])==[7,19],'Function is not working properly'
+    assert function_2_1_sum_list([2,4,10],[5,6,9])==[7,19],'List sum of even odd Function is not working properly'
 
 def test_function_2_2_vowels_list():
-    assert function_2_2_vowels_list('tsai')==['ts'],'Function is not working properly'
+    assert function_2_2_vowels_list('tsai')==['ts'],'Vowels Function is not working properly'
 
 def test_function_2_3_1d_relu_list():
     assert function_2_3_1d_relu_list([1,-10,0,20,15,-5])==[1,0,0,20,15,0],' List Relu Function is not working properly'
@@ -104,7 +108,6 @@ def test_function_2_5_acii_shifting():
 def test_function_4_1_even_addition_check():
     l1=[2,3,4,5,6,7]
     assert function_4_1_even_addition(l1)==12,'Reduce function for even addition not working properly'
-
 
 def test_function_4_2_biggest_acii_char_check():
     l1=['ZORRO']

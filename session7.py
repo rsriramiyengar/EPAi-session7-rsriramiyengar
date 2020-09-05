@@ -7,6 +7,15 @@ from functools import reduce
 vowels = ['a', 'e', 'i', 'o', 'u']
 cap_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X', 'Y', 'Z']
 
+fibonacci_number_list=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
+
+def function_1_fibonacci_list(l1: 'List1') -> 'Returns List with only fibonaci number':
+    """
+    This function only returns only fibonacci numbers from a given list
+    """
+    return list(filter(lambda a:a if a in [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765] else [],l1))
+
+
 def function_2_1_sum_list(l1: 'List1', l2: 'List2') -> 'Returns List after sum':
     """
     This function adds element of 2 lists only when  element of list1 is even and element of list2 is odd.
