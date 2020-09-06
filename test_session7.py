@@ -21,25 +21,24 @@ cap_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
                'V', 'W', 'X', 'Y', 'Z']
 
 README_CONTENT_CHECK_FOR = [
-    '__and__',
-    '__or__',
-    '__repr__',
-    '__str__',
-    '__add__',
-    '__eq__',
-    '__float__',
-    '__ge__',
-    '__gt__',
-    '__invertsign__',
-    '__le__',
-    '__lt__',
-    '__mul__',
-    '__sqrt__',
-    '__bool__'
+    'function_1_fibonacci_list',
+    'function_2_1_sum_list',
+    'function_2_2_vowels_list',
+    'function_2_3_1d_relu_list',
+    'function_2_4_1d_sigmoid_list',
+    'function_2_5_acii_shifting',
+    'function_3_paragraph_profanity_check',
+    'function_4_1_even_addition',
+    'function_4_2_biggest_acii_char',
+    'function_4_3_third_element_addition',
+    'function_5_number_plate_generator',
+    'function_6_number_plate_generator_special',
+    'function_6_number_plate_generator_special_partial',
 ]
 
-paragraph=['But while I was sitting down, I saw something that drove me crazy. Somebody’d written “Fuck you” on the wall. It drove me damn near crazy. I thought how Phoebe and all the other little kids would see it, and how they’d wonder what the hell it meant, and then finally some dirty kid would tell them—all cockeyed, naturally—what it meant, and how they’d all think about it and maybe even worry about it for a couple of days. I kept wanting to kill whoever’d written it. I figured it was some perverty bum that’d sneaked in the school late at night to take a leak or something and then wrote it on the wall. I kept picturing myself catching him at it, and how I’d smash his head on the stone steps till he was good and goddam dead and bloody. But I knew, too, I wouldn’t have the guts to do it. I knew that. That made me even more depressed.']
+paragraph_profane=['But while I was sitting down, I saw something that drove me crazy. Somebody’d written “Fuck you” on the wall. It drove me damn near crazy. I thought how Phoebe and all the other little kids would see it, and how they’d wonder what the hell it meant, and then finally some dirty kid would tell them—all cockeyed, naturally—what it meant, and how they’d all think about it and maybe even worry about it for a couple of days. I kept wanting to kill whoever’d written it. I figured it was some perverty bum that’d sneaked in the school late at night to take a leak or something and then wrote it on the wall. I kept picturing myself catching him at it, and how I’d smash his head on the stone steps till he was good and goddam dead and bloody. But I knew, too, I wouldn’t have the guts to do it. I knew that. That made me even more depressed.']
 
+paragraph_clean=["According to Space News, Congress is unlikely to make major changes to either the SLS or EGS programs due to the notification. While the Senate has yet to take up the House's appropriations bill dealing with SLS and EGS, the chair of the Senate Appropriations Committee, Sen. Richard Shelby (R-Ala.), has advocated for SLS in the past. Further, the House appropriated more money for SLS and EGS than the administration asked for, at $343 million more and $75 million more respectively."]
 
 def test_readme_exists():
     assert os.path.isfile("README.md"), "README.md file missing!"
@@ -88,14 +87,12 @@ def test_function_name_had_cap_letter():
 
 
 def test_function_1_fibonacci_list():
-    assert function_1_fibonacci_list([6, 9, 10, 13, 14, 15, 21, 22, 34, 40, 55, 89]) == [13, 21, 34, 55,
-                                                                                         89], 'fibonacci_list Function is not working properly'
-
+    input=[6, 9, 10, 13, 14, 15, 21, 22, 34, 40, 55, 89]
+    output=[13, 21, 34, 55,89]
+    assert function_1_fibonacci_list(input) ==output, 'fibonacci_list Function is not working properly'
 
 def test_function_2_1_sum_list():
-    assert function_2_1_sum_list([2, 4, 10], [5, 6, 9]) == [7,
-                                                            19], 'List sum of even odd Function is not working properly'
-
+    assert function_2_1_sum_list([2, 4, 10], [5, 6, 9]) == [7,19], 'List sum of even odd Function is not working properly'
 
 def test_function_2_2_vowels_list():
     assert function_2_2_vowels_list('tsai') == ['ts'], 'Vowels Function is not working properly'
@@ -114,11 +111,15 @@ def test_function_2_4_1d_sigmoid_list():
 
 
 def test_function_2_5_acii_shifting():
-    assert function_2_5_acii_shifting('tsai') == ['yxfn'], 'List Function for string shifting is not working properly'
+    assert function_2_5_acii_shifting('tsaiz') == ['yxfne'], 'List Function for string shifting is not working properly'
 
 
-def test_function_3_paragraph_profanity_check():
-    assert function_3_paragraph_profanity_check(paragraph)=={False,True}, 'Check Profanity function'
+def test_function_3_paragraph_profanity_check_True():
+    assert function_3_paragraph_profanity_check(paragraph_profane)=={False,True}, 'Check Profanity function'
+
+def test_function_3_paragraph_profanity_check_False():
+    assert function_3_paragraph_profanity_check(paragraph_clean)=={False}, 'Check Profanity function'
+
 
 def test_function_4_1_even_addition_check():
     l1 = [2, 3, 4, 5, 6, 7]

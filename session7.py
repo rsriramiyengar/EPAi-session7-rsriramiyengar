@@ -52,7 +52,7 @@ def function_3_paragraph_profanity_check(para:'Paragraph of text to be check'):
     This Function checks for input paragraph does not contain any profanity
     """
     f = open("profanity_words_list.txt", "r")
-    content_profanity = f.read()
+    content_profanity = ''.join(f.read()).split()
     f.close()
     return set([True if p in content_profanity else False for p in ' '.join(para).split()])
 

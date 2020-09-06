@@ -1,60 +1,69 @@
-# Readme File for Assignment for Session 4 - Numeric Types II
+# Readme File for Assignment for Session 7 Covering below mentioned concepts
 ### Created by Sriram Iyengar
-## Session 4 - Numeric Types II
-- Floats: Coercing to Integer
-- Floats: Rounding
-- Decimals
-- Decimals: Constructors and Contexts
-- Decimals: Math Operations
-- Decimals: Performance Considerations
-- Complex Numbers
-- Booleans
-- Booleans: Precedence and Short-Circuiting
+## Session 7 - First Class Functions Part 2
+- Map,Filter & Zip
+- Reducing Function
+- Partial Function
+- The Operator Module
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Class
-### Qualean
-    '''      
-    Write a Qualean class that is inspired by Boolean+Quantum concepts. 
-    We can assign it only 3 possible real states. True, False, and Maybe (1, 0, -1)
-    but it internally picks an imaginary state. The moment you assign it a real number,
-    it immediately finds an imaginary number random.uniform(-1, 1) and multiplies with 
-    it and stores that number internally after using Bankers rounding to 10th decimal place
-    '''
+### function_1_fibonacci_list (l1: 'List1') -> 'Returns List with only fibonaci number'
+    """
+    This function only returns only fibonacci numbers from a given list
+    """
 
-### for  __and__ & __or__
-  - This is not implemented as it is a `bitwise &` operation not the `logical and` operation and the base datatype is of `Decimal` class.
-    A rejected PEP-335 (https://www.python.org/dev/peps/pep-0335/) does not allow the overloading of `logical and` operator.
+### function_2_1_sum_list (l1: 'List1', l2: 'List2') -> 'Returns List after sum'
+    """
+    This function adds element of 2 lists only when  element of list1 is even and element of list2 is odd.
+    """
+### function_2_2_vowels_list (l1: 'string for checking') -> 'Return string after striping vowels'
+    """
+    This function strips the given string of all vowels.
+    """
+### function_2_3_1d_relu_list (l1: 'List of numbers') -> 'Relu output'
+    """
+    This function returns Relu function output for given List of numbers
+    """
+### function_2_4_1d_sigmoid_list (l1: 'List of numbers') -> 'Relu output'
+    """
+    This function returns Sigmoid function output for given List of numbers
+    """
+### function_2_5_acii_shifting (l1: 'string for shifting characters') -> 'shifted string'
+    """
+    This function returns List of string shifted by 5 character towards right for all small letters only
+    """
+### function_3_paragraph_profanity_check (para:'Paragraph of text to be check')
+    """
+    This Function checks for input paragraph does not contain any profanity
+    """
+### function_4_1_even_addition (l1: 'list of number for addition') -> 'sum of even numbers'
+    """
+    This function returns sum of even number in given list
+    """
+### function_4_2_biggest_acii_char (l1: 'string') -> 'largest printable printable ascii characters'
+    """
+    This function  returns largest printable printable ascii characters from a given string
+    """
+### function_4_3_third_element_addition (l1: 'List of Number') -> 'sum of every 3rd element in list'
+    """
+    This function returns sum of every 3rd element in list
+    """
+### function_5_number_plate_generator () -> 'Number Plate'
+    """
+    This function Generates Random plates for KA state  with RTO Location between 10 and 99 and series between AA and ZZ
+    and series sub number between 1000 and 9999
+    """
+### function_6_number_plate_generator_special (state:'State of registration',start:'start range',end :'end range') -> 'Number Plate':
+    """
+    This function Generates Random plates for Userdefined state state  with RTO Location between 10 and 99 and series between AA and ZZ
+    and series sub number between user defined ranges
+    """
 
-### _/__repr__/_
-- This method returns the representation of the Qualean object and the value it contains in a nicely formatted string.
-### __str__
-- This method returns the `str` object of value of the Qualean object mentioned.
-### __add__
-- This method overrides the basic implementation of `addition +` operator for the `Qualean` class. It also extends to `int` objects.
-### __eq__
-- This method overrides the equality checking `==` for the user defined `Qualean ` objects.
-### __float__
-- This method returns the float conversion of the `Qualean` object.
-### __ge__
-- This method overrides the greater than or equal to checking `>=` for the user defined `Qualean ` objects.
-### __gt__
-- This method overrides the greater than checking `>` for the user defined `Qualean ` objects.
-### __invertsign__
-- This method returns the opposite sign of value of the calling `Qualean` object.
-### __le__
-- This method overrides the lesser than or equal to checking `<=` for the user defined `Qualean ` objects.
-### __lt__
-- This method overrides the lesser than checking `<` for the user defined `Qualean ` objects.
-### __mul__
-- This method overrides the basic implementation of `multiplication *` operator for the `Qualean` class. It also extends to `int` objects.
-### __sqrt__
-- This method implements the mathematical Square root operation on the `Qualean` object. 
-  It is implemented using `Context` class from the `decimal` module which contains the `sqrt` 
-  functionality with precision of 10 decimal places and rounded using `decimal.ROUND_HALF_EVEN`.
-### __bool__
--  This dunder method returns the `bool` value for the `Qualean` object.
-
+### function_6_number_plate_generator_special_partial =partial(function_6_number_plate_generator_special,start=1000,end=9999)
+    """
+    This partial function Generates Random plates for Userdefined state state  with RTO Location between 10 and 99 and series between AA and ZZ
+    and series sub number between 1000 and 9999.
+    """
 
 ## Functions used in Test File
 ### test_readme_exists 
@@ -74,72 +83,82 @@
 ### test_function_name_had_cap_letter 
 - checks if the Assignment code is function has capital letters
 
-### test_function_100times_eq_100q 
-- checks the sum of 100 Qualean values
+### test_function_1_fibonacci_list 
+- Checks if the fibonaci Function works properly or not
 
-### test_function_decimal_sqrt_check
-- checks sqrt function is working  in assignment
+### test_function_2_1_sum_list 
+- Checks the function  sum of two element list of for even number of List number and odd number of list 2.
 
-### test_function_sum_million_q_eq_zero 
-- checks if sum of 1 million values is near to zero in assignment
+### test_function_2_2_vowels_list 
+- Checks the function if it strips vowels from given string.
 
-### test_function_q1_false_and_q2_not_defined 
-- checks the short circuit in boolen function in assignment
+### test_function_2_3_1d_relu_list 
+- Checks the relu function works on given list
 
-### test_function_q1_True_or_q2_not_defined
-- checks the short circuit in boolen function  in assignment
+### test_function_2_4_1d_sigmoid_list 
+- Checks the sigmoid function works on given list
 
-### test_function_Multiplication_mul 
-- checks the multiplaction function
+### test_function_2_5_acii_shifting 
+- checks the acii shifting function for small alphabets
 
-### test_function_invertsign 
-- checks the invertion function in assignment
-### test_function_float_conversion 
-- checks the Qualean to float function in assignment
+### test_function_3_paragraph_profanity_check_True
+- checks the profanity check if it can detect if paragraph is true
 
-### test_function_greater 
-- checks the greater than function in assignment
+### test_function_3_paragraph_profanity_check_False
+- checks the profanity check if it can detect if paragraph is False
 
-### test_function_greater_than_equal_to 
-- checks the greater than and equal to  function in assignment
+### test_function_4_1_even_addition_check 
+- checks the function of sum  even element from one list1 and odd element of list2 in sequence
 
-### test_function_lesser_than 
-- checks the less than  function in assignment
+### test_function_4_2_biggest_acii_char_check 
+- checks the function biggest acii charter is working
 
-### test_function_less_than_equal_to 
-- checks the less than and equal to  function in assignment
+### test_function_4_3_third_element_addition_check 
+- checks the function for sum of  every third element of list is working
 
-### test_function_equality_true 
-- checks the equlity function for True case in assignment
+### test_function_5_number_plate_generator_state_check 
+- Checks if  number plate  function returns correct state as KA for all element of list
 
-### test_function_equality_false 
-- checks the equlity   function for false case in assignment
+### test_function_5_number_plate_generator_rto_check 
+- Checks if  number plate  function returns correct RTO range of 10 to 99 for all element of list
 
-### test_function_qualean_bool 
-- checks the less boolean  function in assignment
+### test_function_5_number_plate_generator_series_alpha_check 
+- Checks if  number plate  function returns correct series in range of AA to ZZ for all element of list
 
-### test_function_valid_input 
-- checks if the function checks for valid input in assignment
+### test_function_5_number_plate_generator_number_check 
+- Checks if  number plate  function returns correct number series in range of 1000 to 9999 for all element of list
 
-### test_function_invalid_integer_input 
-- checks if the function for invalid input in assignment
 
-### test_function_repr 
-- checks repr function in assignment
+### test_function_6_number_plate_generator_special_state_check 
+- Checks if  number plate  function returns correct user defined state as 'DL' for all element of list- Checks if  number plate  function returns correct state as KA for all element of list
 
-### test_function_str 
-- checks Str function in assignment
+### test_function_6_number_plate_generator_special_rto_check 
+- Checks if  number plate  function returns correct RTO range of 10 to 99 for all element of list
 
-### test_function_add 
-- checks addition  function in assignment
+### test_function_6_number_plate_generator_special_alpha_check 
+- Checks if  number plate  function returns correct series in range of AA to ZZ for all element of list
 
-### test_function_bool 
-- checks bool  function in assignment
+
+### test_function_6_number_plate_generator_special_number_check 
+- Checks if  number plate  function returns correct number series in user defined range between 1000 to 9999 for all element of list
+
+### test_function_6_number_plate_generator_special_partial_state_check 
+- Checks if  number plate  function returns correct user defined state as 'DL' for all element of list- Checks if  number plate  function returns correct state as KA for all element of list
+
+### test_function_6_number_plate_generator_special_partial_rto_check 
+- Checks if  number plate  function returns correct RTO range of 10 to 99 for all element of list
+
+### test_function_6_number_plate_generator_special_partial_alpha_check 
+- Checks if  number plate  function returns correct series in range of AA to ZZ for all element of list
+
+### test_function_6_number_plate_generator_special_partial_number_check 
+- Checks if  number plate  function returns correct number series locked of range between 1000 to 9999 for all element of list
+
 
 ***
-> ![My Image](https://github.com/rsriramiyengar/EPAi-session4-rsriramiyengar/blob/master/images/Image01.JPG)
+> ![My Image](https://github.com/rsriramiyengar/EPAi-session7-rsriramiyengar/blob/master/images/Image01.JPG)
 ***
 
 We are using python >3.8.3
 
-The assignment is  tested by executing 'pytest' , from python shell in same folder
+The assignment is  tested by executing 'pytest -vv' , from python shell in same folder
